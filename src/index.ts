@@ -1,7 +1,6 @@
 import { FsPhone } from './fsphone.service';
 import { FsPhoneDirective } from './fsphone.directive';
 import { HttpClientModule } from '@angular/common/http';
-import { FsApiConfig } from './../.tmp/fsapi.service';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -42,7 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export * from './fsapi.service';
+export * from './fsphone.service';
+export * from './fsphone.directive';
 @NgModule({
   imports: [
     CommonModule,
