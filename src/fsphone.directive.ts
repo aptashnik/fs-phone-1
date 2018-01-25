@@ -1,5 +1,6 @@
 import { FsPhone } from './services/fsphone.service';
 import { PHONE_VALUE_ACCESSOR } from './fsphone.value-accessor';
+import { NgControl } from '@angular/forms';
 import { Directive, Input, Inject, Renderer, ElementRef, Pipe, OnInit } from '@angular/core';
 
 /*
@@ -181,14 +182,13 @@ export class FsPhoneDirective implements OnInit {
         );
 
 
-        this.writeValue(newValue, event.target.selectionStart);
+        this.writeValue(newValue, event.target.selectionStart, false);
         // this.manageCaret(event);
     }
 
     //main function used to re-write user input with the mask and emit changes out of the directive
-    private writeValue(value: any, returnHere): void {
-
-      if (!value) {
+    private writeValue(value: any, returnHere, initialCall = true): void {
+      if (initialCall && !value) {
         return;
       }
 

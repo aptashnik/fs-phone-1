@@ -28,5 +28,5 @@ export declare class FsPhoneDirective implements OnInit {
     constructor(_elementRef: ElementRef, renderer: Renderer, service: FsPhone);
     ngOnInit(): void;
     private onChangeInterceptor(event);
-    private writeValue(value, returnHere);
+    private writeValue(value, returnHere, initialCall?);
 }

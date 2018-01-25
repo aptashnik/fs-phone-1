@@ -136,12 +136,13 @@ var FsPhoneDirective = /** @class */ (function () {
         var fittingValues = this.service.getFittingArr(event.target.value, this.mask, this.regexes);
         var newValue;
         newValue = this.service.formatValue(fittingValues, this.mask, event.target.selectionStart, event.element, this.regexes);
-        this.writeValue(newValue, event.target.selectionStart);
+        this.writeValue(newValue, event.target.selectionStart, false);
         // this.manageCaret(event);
     };
     //main function used to re-write user input with the mask and emit changes out of the directive
-    FsPhoneDirective.prototype.writeValue = function (value, returnHere) {
-        if (!value) {
+    FsPhoneDirective.prototype.writeValue = function (value, returnHere, initialCall) {
+        if (initialCall === void 0) { initialCall = true; }
+        if (initialCall && !value) {
             return;
         }
         this.renderer.setElementProperty(this._elementRef.nativeElement, 'value', value);
