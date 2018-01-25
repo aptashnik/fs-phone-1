@@ -1,19 +1,32 @@
-import { FsPhone } from './fsphone.service';
-import { FormsModule } from '@angular/forms';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import 'hammerjs';
+// Components
 import { FsPhoneDirective } from './fsphone.directive';
-import { NgModule } from '@angular/core';
+import { FsPhone } from './services/fsphone.service';
+
 @NgModule({
-    declarations: [
-        FsPhoneDirective
-    ],
-    providers: [
-        FsPhoneDirective,
-        FsPhone
-    ],
-    exports: [
-        FsPhoneDirective
-    ]
+  imports: [
+    // Angular
+    CommonModule
+  ],
+  exports: [
+    FsPhoneDirective,
+  ],
+  entryComponents: [
+  ],
+  declarations: [
+    FsPhoneDirective,
+  ],
+  providers: [
+    FsPhone
+  ],
 })
 export class FsPhoneModule {
-
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: FsPhoneModule,
+      providers: [FsPhone]
+    };
+  }
 }

@@ -1,72 +1,25 @@
-# fs-address
+# Fs-Playground
 
-## Installation
-
-To install this library, run:
+## How to use
 
 ```bash
-$ npm install fs-address --save
+git clone https://github.com/Firestitch/fs-playground.git
+cd fs-playground
+git submodule init
+git submodule update
+npm install   # Install all deps
+npm run serve # Run webpack dev server
 ```
 
-## Consuming your library
+For create your own library just start coding into `./src` folder and test how it works in
+`./playground`. They are separated angular modules for library sources and testing.
 
-Once you have published your library to npm, you can import your library in any Angular application by running:
+Folders in `src` folder must contain `index.ts` files which contain exports for all your components/services and etc. like in this example.
 
-```bash
-$ npm install fs-address
-```
+### Commands:
+- `npm run serve` - for start webpack developer server
 
-and then from your Angular `AppModule`:
+- `npm run lint` - for check before upload to NPM
 
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+- `npm run package` - for build your package for NPM
 
-import { AppComponent } from './app.component';
-
-// Import your library
-import { SampleModule } from 'fs-address';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-
-    // Specify your library as an import
-    LibraryModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
-
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
-
-```xml
-<!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
-<sampleComponent></sampleComponent>
-```
-
-## Development
-
-To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
-
-```bash
-$ npm run build
-```
-
-To lint all `*.ts` files:
-
-```bash
-$ npm run lint
-```
-
-## License
-
-MIT © [Maksim Sergeev](mailto:sergeev.maxs@gmail.com)

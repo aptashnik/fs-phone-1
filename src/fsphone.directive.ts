@@ -1,16 +1,12 @@
-import { FsPhone } from './fsphone.service';
+import { FsPhone } from './services/fsphone.service';
 import { PHONE_VALUE_ACCESSOR } from './fsphone.value-accessor';
 import { Directive, Input, Inject, Renderer, ElementRef, Pipe, OnInit } from '@angular/core';
 
 /*
     Phone directive. Adds text-mask for any input-type HTML element. Has one working option right now: maskType: 'ru' | 'us', which can be easily extended by adding more phone mask constants in phone-masks.ts file.
-
     Consists the base of functionality of creating the universal text-mask component like https://github.com/text-mask/text-mask
-
     The struggle: easiest way of making this is ceating a real of shadow-DOM element, duplicating user's input, projecting all the user inputs in there and applying a mask on real element. This way in the easiest and would significantly decrease the code amount (and also the possibility of unaccounted behaviours), but would be less productive and would cause more glitches on non-standard ways of using it with components.
-
     By the way it works right now (only one element, all the calculations happen inside the service, separately) it's much more productive and can be used on any input element without messing up with HTML code (e.g. if developer using it would like to use jQuery, another libraries, would like to create his own element duplicate etc), but from other point adds more behaviors we could have missed usage-wise.
-
     In future to be perfected, a little optimised, worked on any use-case and can, indeed, become the best text-mask component on the market.
 */
 
@@ -24,7 +20,7 @@ import { Directive, Input, Inject, Renderer, ElementRef, Pipe, OnInit } from '@a
         '(paste)': 'onPaste($event)',
         '(blur)': '_onTouched()'
     },
-    selector: '[fs-phone]',
+    selector: '[fsPhone]',
     providers: [PHONE_VALUE_ACCESSOR]
 })
 export class FsPhoneDirective implements OnInit {
@@ -187,22 +183,23 @@ export class FsPhoneDirective implements OnInit {
 
         this.writeValue(newValue, event.target.selectionStart);
         // this.manageCaret(event);
-
     }
 
     //main function used to re-write user input with the mask and emit changes out of the directive
     private writeValue(value: any, returnHere): void {
-        this.renderer.setElementProperty(this._elementRef.nativeElement, 'value', value);
-        let caretDelta = 0;
-        if (this.caretMove) {
-            returnHere = this.caretMove + 1;
-            delete this.caretMove;
-        } else caretDelta = this.service.getCaretDelta(returnHere, this.mask);
-        this._elementRef.nativeElement.setSelectionRange(returnHere + caretDelta, returnHere + caretDelta)
 
-        this._onChange(value);
+      if (!value) {
+        return;
+      }
+
+      this.renderer.setElementProperty(this._elementRef.nativeElement, 'value', value);
+      let caretDelta = 0;
+      if (this.caretMove) {
+          returnHere = this.caretMove + 1;
+          delete this.caretMove;
+      } else caretDelta = this.service.getCaretDelta(returnHere, this.mask);
+      this._elementRef.nativeElement.setSelectionRange(returnHere + caretDelta, returnHere + caretDelta)
+
+      this._onChange(value);
     }
-
-
-
 }

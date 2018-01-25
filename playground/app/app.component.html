@@ -1,0 +1,6 @@
+<form (ngSubmit)="save(form)" #form="ngForm" fsForm [fsFormBinding]="form">
+  <mat-form-field fxFlex>
+    <input matInput fsPhone [(ngModel)]="phone" fsFormRequired="true" name="phone" placeholder="Phone">
+  </mat-form-field>
+  <button type="submit">Submit</button>
+</form>
