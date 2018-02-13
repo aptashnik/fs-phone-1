@@ -1,29 +1,32 @@
-import './vendor.scss';
+import './../tools/assets/playground.scss';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material';
 import { AppComponent } from './app/app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FsPhoneModule } from '../src';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppMaterialModule } from './app/material.module';
+import { FirstExampleComponent } from './app/components/first-example/first-example.component';
+import { FsExampleModule } from '@firestitch/example';
 import { FsFormModule } from '@firestitch/form';
 
 @NgModule({
   bootstrap: [ AppComponent ],
   imports: [
-    // Angular
-    FormsModule,
     BrowserModule,
     FsPhoneModule,
     BrowserAnimationsModule,
+    AppMaterialModule,
+    FormsModule,
     FsFormModule,
-    MatInputModule
+    FsExampleModule
   ],
   entryComponents: [
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    FirstExampleComponent
   ],
   providers: [
   ],

@@ -1,6 +1,3 @@
-[submodule "bundler"]
-	path = bundler
-	url = git@github.com:Firestitch/fs-bundler.git
-[submodule "configs"]
-	path = configs
-	url = git@github.com:Firestitch/fs-configs.git
+[submodule "tools"]
+	path = tools
+	url = git@github.com:Firestitch/component-tools.git

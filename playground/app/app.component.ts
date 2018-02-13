@@ -1,19 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'fs-app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: [ '../styles/styles.scss' ]
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
 })
 export class AppComponent {
-
-  phone = null;
-
-  constructor() {
-  }
-
-  save() {
-
-  }
-
 }
