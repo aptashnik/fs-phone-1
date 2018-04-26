@@ -6,9 +6,9 @@ import { AppComponent } from './app/app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FsPhoneModule } from '../src';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FsExampleModule } from '@firestitch/example';
 import { AppMaterialModule } from './app/material.module';
 import { FirstExampleComponent } from './app/components/first-example/first-example.component';
-import { FsExampleModule } from '@firestitch/example';
 import { FsFormModule } from '@firestitch/form';
 
 @NgModule({
@@ -19,8 +19,8 @@ import { FsFormModule } from '@firestitch/form';
     BrowserAnimationsModule,
     AppMaterialModule,
     FormsModule,
-    FsFormModule,
-    FsExampleModule
+    FsExampleModule,
+    FsFormModule
   ],
   entryComponents: [
   ],

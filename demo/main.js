@@ -519,7 +519,7 @@ webpackEmptyAsyncContext.id = "../tools lazy recursive";
 /***/ "./app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>FsPhone Examples</h1>\n<div class=\"example\">\n    <fs-example title=\"FsPhone Example\" componentName=\"first-example\">\n        <first-example></first-example>\n    </fs-example>\n</div>\n"
+module.exports = "<fs-examples title=\"Phone\">\n  <fs-example title=\"FsPhone Example\" componentName=\"first-example\">\n    <first-example></first-example>\n  </fs-example>\n</fs-examples>\n"
 
 /***/ }),
 
@@ -745,9 +745,9 @@ var app_component_1 = __webpack_require__("./app/app.component.ts");
 var platform_browser_1 = __webpack_require__("../node_modules/@angular/platform-browser/esm2015/platform-browser.js");
 var src_1 = __webpack_require__("../src/index.ts");
 var animations_1 = __webpack_require__("../node_modules/@angular/platform-browser/esm2015/animations.js");
+var example_1 = __webpack_require__("../node_modules/@firestitch/example/package/index.js");
 var material_module_1 = __webpack_require__("./app/material.module.ts");
 var first_example_component_1 = __webpack_require__("./app/components/first-example/first-example.component.ts");
-var example_1 = __webpack_require__("../node_modules/@firestitch/example/package/index.js");
 var form_1 = __webpack_require__("../node_modules/@firestitch/form/package/index.js");
 var PlaygroundModule = (function () {
     function PlaygroundModule() {
@@ -761,8 +761,8 @@ var PlaygroundModule = (function () {
                 animations_1.BrowserAnimationsModule,
                 material_module_1.AppMaterialModule,
                 forms_1.FormsModule,
-                form_1.FsFormModule,
-                example_1.FsExampleModule
+                example_1.FsExampleModule,
+                form_1.FsFormModule
             ],
             entryComponents: [],
             declarations: [
