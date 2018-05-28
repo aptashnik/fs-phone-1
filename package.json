@@ -110,7 +110,8 @@
     "replace": "^0.3.0",
     "hammerjs": "^2.0.8",
     "moment-timezone": "^0.5.17",
-    "replace-in-file": "^3.4.0"
+    "replace-in-file": "^3.4.0",
+    "filemanager-webpack-plugin": "^1.0.26"
   },
   "engines": {
     "node": ">=6.0.0"
